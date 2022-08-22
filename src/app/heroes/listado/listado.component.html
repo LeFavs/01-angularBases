@@ -1,0 +1,27 @@
+<h1>Heroes</h1>
+
+<div *ngIf="poppedHeroes.length>0&&7>poppedHeroes.length; else clickButton">
+    <h3>Deleted Heroe</h3>
+    <span>{{deletedHero}}</span>
+    <br>
+    <br>
+</div>
+
+<ng-template #clickButton>
+    <h3>Please, click the button to delete or add a Hero.</h3>
+</ng-template>
+
+
+
+<button *ngIf="7>poppedHeroes.length" (click)='deleteHero()'>Delete</button>
+
+<button *ngIf="poppedHeroes.length>0" (click)='addBackHero()'>Add back</button>
+<br>
+<br>
+
+<ul>
+    <li *ngFor='let hero of heroes; let i = index'>
+        {{i+1}} - {{hero}}
+    </li>
+</ul>
+
